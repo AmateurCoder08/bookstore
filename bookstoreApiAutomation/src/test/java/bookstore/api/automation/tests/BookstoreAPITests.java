@@ -14,18 +14,20 @@ import bookstore.api.automation.utils.DataUtils;
 import bookstore.api.automation.utils.RequestResponseUtils;
 import io.restassured.response.Response;
 
-public class UserAuthenticationTests {
+public class BookstoreAPITests {
 	
 	private static UserCredentialsPayload payload;
 	private static String accessToken;
-	private static Integer id;
+	private static Integer bookId;
+	private static Integer anotherBookId;
 	
-	@Test(priority = 1, description = "")
+	@Test(priority = 1)
 	public void checkAPIHealth() {
 		Response response = RequestResponseUtils.getRequest(getHealthEndPoint());
+		
 		response.then()
 			.statusCode(200)
-			.body("status", Matchers.equalTo("up"));
+			.body("status", equalTo("up"));
 	}
 	
 	@Test(priority = 2)
@@ -37,6 +39,7 @@ public class UserAuthenticationTests {
 											.password(password)
 											.build();
 		Response response = RequestResponseUtils.postRequest(getSignupEndPoint(), payload);
+		
 		response.then()
 				.statusCode(200)
 				.body("message", equalToIgnoringCase("User created successfully"));
@@ -46,6 +49,7 @@ public class UserAuthenticationTests {
 	public void verifyLogin() {
 		Response response = RequestResponseUtils.postRequest(getLoginEndPoint(), payload);
 		accessToken = response.jsonPath().get("access_token");
+		
 		response.then()
 				.statusCode(200)
 				.body(
@@ -64,6 +68,7 @@ public class UserAuthenticationTests {
 											.password(password)
 											.build();
 		Response response = RequestResponseUtils.postRequest(getLoginEndPoint(), payload);
+		
 		response.then()
 				.statusCode(400)
 				.body("detail", equalToIgnoringCase("Incorrect email or password"));
@@ -75,6 +80,7 @@ public class UserAuthenticationTests {
 		String author = "JK Rowling";
 		Integer publishedYear = 1997;
 		String bookSummary = "Magic and wizards";
+		
 		BookPayload bookPayload = BookPayload.builder()
 									.name(bookName)
 									.author(author)
@@ -82,7 +88,9 @@ public class UserAuthenticationTests {
 									.bookSummary(bookSummary)
 									.build();
 		Response response = RequestResponseUtils.postRequest(getBooksEndPoint(), bookPayload, accessToken);
-		id = response.jsonPath().getInt("id");
+		
+		bookId = response.jsonPath().getInt("id");
+		
 		response.then()
 				.statusCode(200)
 				.body(
@@ -96,18 +104,34 @@ public class UserAuthenticationTests {
 	
 	@Test(priority = 6)
 	public void verifyAllBooksRetrieval() {
-		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + id, accessToken);
-		response.then()
+		
+		String bookName = "Mortal instruments";
+		String author = "Cassandra Clare";
+		Integer publishedYear = 2011;
+		String bookSummary = "Demon hunters and stuff";
+		
+		BookPayload bookPayload = BookPayload.builder()
+									.name(bookName)
+									.author(author)
+									.publishedYear(publishedYear)
+									.bookSummary(bookSummary)
+									.build();
+		anotherBookId = RequestResponseUtils.postRequest(getBooksEndPoint(), bookPayload, accessToken).jsonPath().get("id");
+		
+		Response responseForGetRequest = RequestResponseUtils.getRequest(getBooksEndPoint(), accessToken);
+		
+		responseForGetRequest.then()
 				.statusCode(200)
-				.body("id", equalTo(id));
+				.body("id", hasItems(bookId, anotherBookId));
 	}
 	
 	@Test(priority = 7)
 	public void verifyBookRetrieval() {
-		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + id, accessToken);
+		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + bookId, accessToken);
+		
 		response.then()
 				.statusCode(200)
-				.body("id", equalTo(id));
+				.body("id", equalTo(bookId));
 	}
 	
 	@Test(priority = 8)
@@ -121,13 +145,14 @@ public class UserAuthenticationTests {
 									.author(author)
 									.publishedYear(publishedYear)
 									.bookSummary(bookSummary)
-									.id(id)
+									.id(bookId)
 									.build();
-		Response response = RequestResponseUtils.putRequest(getBooksEndPoint() + id, bookPayload, accessToken);
+		Response response = RequestResponseUtils.putRequest(getBooksEndPoint() + bookId, bookPayload, accessToken);
+		
 		response.then()
 			.statusCode(200)
 			.body(
-					"id", equalTo(id),
+					"id", equalTo(bookId),
 					"name", equalTo(bookName),
 					"author", equalTo(author),
 					"published_year", equalTo(publishedYear),
@@ -137,10 +162,17 @@ public class UserAuthenticationTests {
 	
 	@Test(priority = 9)
 	public void verifyDeletingBooks() {
-		Response response = RequestResponseUtils.deleteRequest(getBooksEndPoint() + id, accessToken);
+		Response response = RequestResponseUtils.deleteRequest(getBooksEndPoint() + bookId, accessToken);
+		
 		response.then()
 				.statusCode(200)
 				.body("message", equalToIgnoringCase("Book deleted successfully"));
+		
+		response = RequestResponseUtils.deleteRequest(getBooksEndPoint() + anotherBookId, accessToken);
+		
+		response.then()
+			.statusCode(200)
+			.body("message", equalToIgnoringCase("Book deleted successfully"));
 	}
 
 }
