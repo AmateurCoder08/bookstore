@@ -15,7 +15,7 @@ public class UserAuthenticationTests {
 	private static String accessToken;
 	private static Integer id;
 	
-	@Test(priority = 1)
+	@Test(priority = 1, description = "")
 	public void checkAPIHealth() {
 		Response response = RequestResponseUtils.getRequest(APIEndPoints.getHealthEndPoint());
 		response.then()
