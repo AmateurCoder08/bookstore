@@ -125,7 +125,14 @@ public class UserAuthenticationTests {
 									.build();
 		Response response = RequestResponseUtils.putRequest(getBooksEndPoint() + id, bookPayload, accessToken);
 		response.then()
-			.statusCode(200);		
+			.statusCode(200)
+			.body(
+					"id", equalTo(id),
+					"name", equalTo(bookName),
+					"author", equalTo(author),
+					"published_year", equalTo(publishedYear),
+					"book_summary", equalTo(bookSummary)
+			);
 	}
 	
 	@Test(priority = 9)
