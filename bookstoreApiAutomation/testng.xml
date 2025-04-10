@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="APITesting">
+	<listeners>
+		<listener
+			class-name="bookstore.api.automation.listeners.ListenerBase" />
+	</listeners>
+	<test thread-count="1" name="EndToEndTesting">
+		<classes>
+			<class name="bookstore.api.automation.tests.UserAuthenticationTests" />
+		</classes>
+	</test> <!--
+	EndToEndTesting -->
+</suite> <!--
+APITesting -->
