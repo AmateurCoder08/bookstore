@@ -25,7 +25,7 @@ public class ListenerBase implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		test.pass(result.getName() + " test Passed");		
+		test.pass(result.getName() + " test Passed");
 	}
 
 	@Override

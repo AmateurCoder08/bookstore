@@ -174,5 +174,14 @@ public class BookstoreAPITests {
 			.statusCode(200)
 			.body("message", equalToIgnoringCase("Book deleted successfully"));
 	}
+	
+	@Test(priority = 10) 
+	public void verifyInvalidBookRetrieval() {
+		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + bookId, accessToken);
+		
+		response.then()
+				.statusCode(404)
+				.body("detail", equalToIgnoringCase("Book not found"));		
+	}
 
 }

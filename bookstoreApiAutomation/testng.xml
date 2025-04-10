@@ -7,7 +7,7 @@
 	</listeners>
 	<test thread-count="1" name="EndToEndTesting">
 		<classes>
-			<class name="bookstore.api.automation.tests.UserAuthenticationTests" />
+			<class name="bookstore.api.automation.tests.BookstoreAPITests" />
 		</classes>
 	</test> <!--
 	EndToEndTesting -->
