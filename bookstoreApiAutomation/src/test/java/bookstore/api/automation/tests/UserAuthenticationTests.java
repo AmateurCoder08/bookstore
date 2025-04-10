@@ -1,11 +1,16 @@
 package bookstore.api.automation.tests;
 
-import org.hamcrest.Matchers;
+import static bookstore.api.automation.constants.APIEndPoints.getBooksEndPoint;
+import static bookstore.api.automation.constants.APIEndPoints.getHealthEndPoint;
+import static bookstore.api.automation.constants.APIEndPoints.getLoginEndPoint;
+import static bookstore.api.automation.constants.APIEndPoints.getSignupEndPoint;
+
+import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
-import bookstore.api.automation.constants.APIEndPoints;
 import bookstore.api.automation.payloads.BookPayload;
 import bookstore.api.automation.payloads.UserCredentialsPayload;
+import bookstore.api.automation.utils.DataUtils;
 import bookstore.api.automation.utils.RequestResponseUtils;
 import io.restassured.response.Response;
 
@@ -17,7 +22,7 @@ public class UserAuthenticationTests {
 	
 	@Test(priority = 1, description = "")
 	public void checkAPIHealth() {
-		Response response = RequestResponseUtils.getRequest(APIEndPoints.getHealthEndPoint());
+		Response response = RequestResponseUtils.getRequest(getHealthEndPoint());
 		response.then()
 			.statusCode(200)
 			.body("status", Matchers.equalTo("up"));
@@ -25,32 +30,46 @@ public class UserAuthenticationTests {
 	
 	@Test(priority = 2)
 	public void verifySignUp() {
-		String email = "randomEmail" + System.currentTimeMillis() + "@email.com";
-		String password = "password";
+		String email = DataUtils.generateRandomEmail();
+		String password = DataUtils.generateRandomPassword();
 		payload = UserCredentialsPayload.builder()
 											.email(email)
 											.password(password)
 											.build();
-		Response response = RequestResponseUtils.postRequest(APIEndPoints.getSignupEndPoint(), payload);
+		Response response = RequestResponseUtils.postRequest(getSignupEndPoint(), payload);
 		response.then()
 				.statusCode(200)
-				.body("message", Matchers.equalToIgnoringCase("User created successfully"));
+				.body("message", equalToIgnoringCase("User created successfully"));
 	}
 	
 	@Test(priority = 3)
 	public void verifyLogin() {
-		Response response = RequestResponseUtils.postRequest(APIEndPoints.getLoginEndPoint(), payload);
+		Response response = RequestResponseUtils.postRequest(getLoginEndPoint(), payload);
 		accessToken = response.jsonPath().get("access_token");
 		response.then()
 				.statusCode(200)
 				.body(
-						"token_type",Matchers.equalTo("bearer"),
-						"access_token", Matchers.notNullValue()
+						"token_type", equalTo("bearer"),
+						"access_token", notNullValue()
 				);
 		
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 4) 
+	public void verifyWithInvalidCredentials() {		
+		String email = DataUtils.generateRandomEmail();
+		String password = DataUtils.generateRandomPassword();
+		payload = UserCredentialsPayload.builder()
+											.email(email)
+											.password(password)
+											.build();
+		Response response = RequestResponseUtils.postRequest(getLoginEndPoint(), payload);
+		response.then()
+				.statusCode(400)
+				.body("detail", equalToIgnoringCase("Incorrect email or password"));
+	}
+	
+	@Test(priority = 5)
 	public void verifyAddingBooks() {
 		String bookName = "Harry Potter";
 		String author = "JK Rowling";
@@ -62,36 +81,36 @@ public class UserAuthenticationTests {
 									.publishedYear(publishedYear)
 									.bookSummary(bookSummary)
 									.build();
-		Response response = RequestResponseUtils.postRequest(APIEndPoints.getBooksEndPoint(), bookPayload, accessToken);
+		Response response = RequestResponseUtils.postRequest(getBooksEndPoint(), bookPayload, accessToken);
 		id = response.jsonPath().getInt("id");
 		response.then()
 				.statusCode(200)
 				.body(
-						"id", Matchers.notNullValue(),
-						"name", Matchers.equalTo(bookName),
-						"author", Matchers.equalTo(author),
-						"published_year", Matchers.equalTo(publishedYear),
-						"book_summary", Matchers.equalTo(bookSummary)
+						"id", notNullValue(),
+						"name", equalTo(bookName),
+						"author", equalTo(author),
+						"published_year", equalTo(publishedYear),
+						"book_summary", equalTo(bookSummary)
 				);
 	}
 	
-	@Test(priority = 5)
-	public void verifyAllBooksRetrieval() {
-		Response response = RequestResponseUtils.getRequest(APIEndPoints.getBooksEndPoint() + id, accessToken);
-		response.then()
-				.statusCode(200)
-				.body("id", Matchers.equalTo(id));
-	}
-	
 	@Test(priority = 6)
-	public void verifyBookRetrieval() {
-		Response response = RequestResponseUtils.getRequest(APIEndPoints.getBooksEndPoint() + id, accessToken);
+	public void verifyAllBooksRetrieval() {
+		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + id, accessToken);
 		response.then()
 				.statusCode(200)
-				.body("id", Matchers.equalTo(id));
+				.body("id", equalTo(id));
 	}
 	
 	@Test(priority = 7)
+	public void verifyBookRetrieval() {
+		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + id, accessToken);
+		response.then()
+				.statusCode(200)
+				.body("id", equalTo(id));
+	}
+	
+	@Test(priority = 8)
 	public void verifyUpdatingBookDetails() {
 		String bookName = "Harry Potter";
 		String author = "JK Rowling";
@@ -104,17 +123,17 @@ public class UserAuthenticationTests {
 									.bookSummary(bookSummary)
 									.id(id)
 									.build();
-		Response response = RequestResponseUtils.putRequest(APIEndPoints.getBooksEndPoint() + id, bookPayload, accessToken);
+		Response response = RequestResponseUtils.putRequest(getBooksEndPoint() + id, bookPayload, accessToken);
 		response.then()
 			.statusCode(200);		
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 9)
 	public void verifyDeletingBooks() {
-		Response response = RequestResponseUtils.deleteRequest(APIEndPoints.getBooksEndPoint() + id, accessToken);
+		Response response = RequestResponseUtils.deleteRequest(getBooksEndPoint() + id, accessToken);
 		response.then()
 				.statusCode(200)
-				.body("message", Matchers.equalToIgnoringCase("Book deleted successfully"));
+				.body("message", equalToIgnoringCase("Book deleted successfully"));
 	}
 
 }
