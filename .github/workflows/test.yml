@@ -41,5 +41,5 @@ jobs:
 
     - name: Run RestAssured tests
       run: |
-        cd bookstore
+        cd bookstoreApiAutomation
         mvn clean test
