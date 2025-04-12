@@ -29,7 +29,7 @@ jobs:
       run: |
         cd bookstore
         source venv/bin/activate
-        nohup python main.py &    # or main.py, or your entry point
+        uvicorn main:app --reload &    # or main.py, or your entry point
         sleep 10                 # wait for the API to start
 
     # Set up Java for the tests
