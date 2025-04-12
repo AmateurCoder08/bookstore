@@ -20,14 +20,14 @@ jobs:
 
     - name: Install API dependencies
       run: |
-        cd rest-api
+        cd bookstore
         python -m venv venv
         source venv/bin/activate
         pip install -r requirements.txt
 
     - name: Start REST API (Python)
       run: |
-        cd rest-api
+        cd bookstore
         source venv/bin/activate
         nohup python main.py &    # or main.py, or your entry point
         sleep 10                 # wait for the API to start
