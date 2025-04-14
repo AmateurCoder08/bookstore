@@ -4,8 +4,11 @@ import static bookstore.api.automation.constants.APIEndPoints.getBooksEndPoint;
 import static bookstore.api.automation.constants.APIEndPoints.getHealthEndPoint;
 import static bookstore.api.automation.constants.APIEndPoints.getLoginEndPoint;
 import static bookstore.api.automation.constants.APIEndPoints.getSignupEndPoint;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.notNullValue;
 
-import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
 import bookstore.api.automation.payloads.BookPayload;
