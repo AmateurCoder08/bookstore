@@ -1,0 +1,45 @@
+name: Run API Tests with RestAssured
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Set up Python for the API
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'  # change to your API's version
+
+    - name: Install API dependencies
+      run: |
+        cd bookstore
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+
+    - name: Start REST API (Python)
+      run: |
+        cd bookstore
+        source venv/bin/activate
+        uvicorn main:app --reload &    # or main.py, or your entry point
+        sleep 10                 # wait for the API to start
+
+    # Set up Java for the tests
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Run RestAssured tests
+      run: |
+        cd bookstoreApiAutomation
+        mvn clean test
