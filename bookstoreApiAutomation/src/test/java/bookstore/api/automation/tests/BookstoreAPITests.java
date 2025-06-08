@@ -24,7 +24,7 @@ public class BookstoreAPITests {
 	private static Integer bookId;
 	private static Integer anotherBookId;
 	
-	@Test(priority = 1)
+	@Test(priority = 1, description = "To verify if the Bookstore API is up and running")
 	public void checkAPIHealth() {
 		Response response = RequestResponseUtils.getRequest(getHealthEndPoint());
 		
@@ -33,7 +33,7 @@ public class BookstoreAPITests {
 			.body("status", equalTo("up"));
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 2, description = "To verify user sign up with the Bookstore API")
 	public void verifySignUp() {
 		String email = DataUtils.generateRandomEmail();
 		String password = DataUtils.generateRandomPassword();
@@ -48,7 +48,7 @@ public class BookstoreAPITests {
 				.body("message", equalToIgnoringCase("User created successfully"));
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 3, dependsOnMethods = "verifySignUp", description = "To verify user login with the Bookstore API")
 	public void verifyLogin() {
 		Response response = RequestResponseUtils.postRequest(getLoginEndPoint(), payload);
 		accessToken = response.jsonPath().get("access_token");
@@ -62,7 +62,7 @@ public class BookstoreAPITests {
 		
 	}
 	
-	@Test(priority = 4) 
+	@Test(priority = 4, description = "To verify the Bookstore API behavior with invalid login credentials") 
 	public void verifyWithInvalidCredentials() {		
 		String email = DataUtils.generateRandomEmail();
 		String password = DataUtils.generateRandomPassword();
@@ -77,7 +77,7 @@ public class BookstoreAPITests {
 				.body("detail", equalToIgnoringCase("Incorrect email or password"));
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 5, description = "To verify adding books by hitting the Bookstore API")
 	public void verifyAddingBooks() {
 		String bookName = "Harry Potter";
 		String author = "JK Rowling";
@@ -105,7 +105,7 @@ public class BookstoreAPITests {
 				);
 	}
 	
-	@Test(priority = 6)
+	@Test(priority = 6, dependsOnMethods = "verifyAddingBooks", description = "To verify all books retrieval with Bookstore API")
 	public void verifyAllBooksRetrieval() {
 		
 		String bookName = "Mortal instruments";
@@ -128,7 +128,7 @@ public class BookstoreAPITests {
 				.body("id", hasItems(bookId, anotherBookId));
 	}
 	
-	@Test(priority = 7)
+	@Test(priority = 7, dependsOnMethods = "verifyAddingBooks", description = "To verify book retrieval with Bookstore API")
 	public void verifyBookRetrieval() {
 		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + bookId, accessToken);
 		
@@ -137,7 +137,7 @@ public class BookstoreAPITests {
 				.body("id", equalTo(bookId));
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 8, dependsOnMethods = "verifyAddingBooks", description = "To verify updating book details with Bookstore API")
 	public void verifyUpdatingBookDetails() {
 		String bookName = "Harry Potter";
 		String author = "JK Rowling";
@@ -163,7 +163,7 @@ public class BookstoreAPITests {
 			);
 	}
 	
-	@Test(priority = 9)
+	@Test(priority = 9, dependsOnMethods = "verifyAllBooksRetrieval", description = "To verify book deletion with Bookstore API")
 	public void verifyDeletingBooks() {
 		Response response = RequestResponseUtils.deleteRequest(getBooksEndPoint() + bookId, accessToken);
 		
@@ -178,7 +178,7 @@ public class BookstoreAPITests {
 			.body("message", equalToIgnoringCase("Book deleted successfully"));
 	}
 	
-	@Test(priority = 10) 
+	@Test(priority = 10, dependsOnMethods = "verifyDeletingBooks", description = "To verify invalid book retrieval with Bookstore API") 
 	public void verifyInvalidBookRetrieval() {
 		Response response = RequestResponseUtils.getRequest(getBooksEndPoint() + bookId, accessToken);
 		

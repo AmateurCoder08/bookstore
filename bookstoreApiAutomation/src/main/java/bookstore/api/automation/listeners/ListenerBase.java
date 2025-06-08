@@ -19,7 +19,8 @@ public class ListenerBase implements ITestListener {
 	@Override
 	public void onTestStart(ITestResult result) {
 		ITestListener.super.onTestStart(result);
-		ExtentFactory.getInstance().setExtentTest(report.createTest(result.getName()));
+		String testTitle = result.getMethod().getDescription();
+		ExtentFactory.getInstance().setExtentTest(report.createTest(testTitle));
 	}
 
 	@Override

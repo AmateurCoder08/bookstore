@@ -2,13 +2,15 @@ package bookstore.api.automation.utils;
 
 import static io.restassured.RestAssured.given;
 
+import bookstore.api.automation.reports.ReportLogging;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class RequestResponseUtils {
 	
 	public static void logTheResponse(Response response){
-		response.then().log().all();				
+		response.then().log().all();
+		ReportLogging.info("Response Received: " + response.getBody().asPrettyString());
 	}
 	
 	public static Response getRequest(String endPoint) {
@@ -35,6 +37,7 @@ public class RequestResponseUtils {
 	}
 	
 	public static Response postRequest(String endPoint, Object payload) {
+		ReportLogging.info(payload.toString());
 		Response response = given()
 								.contentType(ContentType.JSON)
 								.body(payload)
@@ -48,6 +51,7 @@ public class RequestResponseUtils {
 	}
 	
 	public static Response postRequest(String endPoint, Object payload, String accessToken) {
+		ReportLogging.info(payload.toString());
 		Response response = given()
 								.header("Authorization", "Bearer " + accessToken)
 								.contentType(ContentType.JSON)
