@@ -26,10 +26,13 @@ public class ExtentFactory {
 	private static ThreadLocal<ExtentTest> threadSafeExtentTest = new ThreadLocal<ExtentTest>();
 	
 	public ExtentTest getExtentTest() {
+		System.out.println("Current Thread: " + Thread.currentThread().getId());
+		System.out.println("ExtentTest in this thread: " + threadSafeExtentTest.get());
 		return threadSafeExtentTest.get();
 	}
 	
 	public void setExtentTest(ExtentTest test) {
+		System.out.println("Current Thread: " + Thread.currentThread().getId());		
 		threadSafeExtentTest.set(test);
 	}
 	
