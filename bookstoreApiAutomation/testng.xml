@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="APITesting">
+<suite name="APITesting" parallel="false">
 	<listeners>
 		<listener
 			class-name="bookstore.api.automation.listeners.ListenerBase" />
 	</listeners>
-	<test thread-count="1" name="EndToEndTesting">
+	<test thread-count="1" name="EndToEndTesting" parallel="false">
 		<classes>
 			<class name="bookstore.api.automation.tests.BookstoreAPITests" />
 		</classes>
