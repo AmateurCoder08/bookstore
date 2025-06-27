@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">API automation test report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Apr 10, 2025 04:54:48 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jun 27, 2025 07:11:49 pm</span></a>
 </li>
 </ul>
 </div>
@@ -67,7 +67,6 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -80,9 +79,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">checkAPIHealth</p>
+            <p class="name">To verify if the Bookstore API is up and running</p>
             <p class="text-sm">
-              <span>4:54:49 pm</span> / <span>00:00:02:286</span>
+              <span>7:11:49 pm</span> / <span>00:00:01:595</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -90,10 +89,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">checkAPIHealth</h5>
-<span class='badge badge-success'>04.10.2025 4:54:49 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:51 pm</span>
-<span class='badge badge-default'>00:00:02:286</span>
+<h5 class="test-status text-pass">To verify if the Bookstore API is up and running</h5>
+<span class='badge badge-success'>06.27.2025 7:11:49 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:51 pm</span>
+<span class='badge badge-default'>00:00:01:595</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -105,8 +104,17 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:50 pm</td>
+        <td>
+          Response Received: {
+    "status": "up"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:51 pm</td>
+        <td>7:11:51 pm</td>
         <td>
           checkAPIHealth test Passed
         </td>
@@ -121,9 +129,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifySignUp</p>
+            <p class="name">To verify user sign up with the Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:51 pm</span> / <span>00:00:01:749</span>
+              <span>7:11:51 pm</span> / <span>00:00:00:703</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -131,10 +139,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifySignUp</h5>
-<span class='badge badge-success'>04.10.2025 4:54:51 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:53 pm</span>
-<span class='badge badge-default'>00:00:01:749</span>
+<h5 class="test-status text-pass">To verify user sign up with the Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:51 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:51 pm</span>
+<span class='badge badge-default'>00:00:00:703</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -146,8 +154,24 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:51 pm</td>
+        <td>
+          UserCredentialsPayload(email=jude.welch@yahoo.com, password=9k7esfla)
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:51 pm</td>
+        <td>
+          Response Received: {
+    "message": "User created successfully"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:53 pm</td>
+        <td>7:11:51 pm</td>
         <td>
           verifySignUp test Passed
         </td>
@@ -162,9 +186,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyLogin</p>
+            <p class="name">To verify user login with the Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:53 pm</span> / <span>00:00:01:033</span>
+              <span>7:11:51 pm</span> / <span>00:00:00:301</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -172,10 +196,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifyLogin</h5>
-<span class='badge badge-success'>04.10.2025 4:54:53 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-default'>00:00:01:033</span>
+<h5 class="test-status text-pass">To verify user login with the Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:51 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:301</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -187,8 +211,25 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:51 pm</td>
+        <td>
+          UserCredentialsPayload(email=jude.welch@yahoo.com, password=9k7esfla)
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWRlLndlbGNoQHlhaG9vLmNvbSIsImV4cCI6MTc1MTAzMzUxMn0.gUC6a48UlvifS6ZC18S8mQZmpZoxHQDRiU0QXd859Lg",
+    "token_type": "bearer"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:54 pm</td>
+        <td>7:11:52 pm</td>
         <td>
           verifyLogin test Passed
         </td>
@@ -203,9 +244,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyWithInvalidCredentials</p>
+            <p class="name">To verify the Bookstore API behavior with invalid login credentials</p>
             <p class="text-sm">
-              <span>4:54:54 pm</span> / <span>00:00:00:113</span>
+              <span>7:11:52 pm</span> / <span>00:00:00:079</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -213,10 +254,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifyWithInvalidCredentials</h5>
-<span class='badge badge-success'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-default'>00:00:00:113</span>
+<h5 class="test-status text-pass">To verify the Bookstore API behavior with invalid login credentials</h5>
+<span class='badge badge-success'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:079</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -228,8 +269,24 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          UserCredentialsPayload(email=patrick.ritchie@gmail.com, password=imadp8zq1c)
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "detail": "Incorrect email or password"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:54 pm</td>
+        <td>7:11:52 pm</td>
         <td>
           verifyWithInvalidCredentials test Passed
         </td>
@@ -244,9 +301,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyAddingBooks</p>
+            <p class="name">To verify adding books by hitting the Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:54 pm</span> / <span>00:00:00:147</span>
+              <span>7:11:52 pm</span> / <span>00:00:00:110</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -254,10 +311,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifyAddingBooks</h5>
-<span class='badge badge-success'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-default'>00:00:00:147</span>
+<h5 class="test-status text-pass">To verify adding books by hitting the Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:110</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -269,8 +326,28 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          BookPayload(id=null, name=Harry Potter, author=JK Rowling, publishedYear=1997, bookSummary=Magic and wizards)
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "published_year": 1997,
+    "id": 1,
+    "author": "JK Rowling",
+    "book_summary": "Magic and wizards",
+    "name": "Harry Potter"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:54 pm</td>
+        <td>7:11:52 pm</td>
         <td>
           verifyAddingBooks test Passed
         </td>
@@ -285,9 +362,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyAllBooksRetrieval</p>
+            <p class="name">To verify all books retrieval with Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:54 pm</span> / <span>00:00:00:104</span>
+              <span>7:11:52 pm</span> / <span>00:00:00:058</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -295,10 +372,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifyAllBooksRetrieval</h5>
-<span class='badge badge-success'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-default'>00:00:00:104</span>
+<h5 class="test-status text-pass">To verify all books retrieval with Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:058</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -310,8 +387,50 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          BookPayload(id=null, name=Mortal instruments, author=Cassandra Clare, publishedYear=2011, bookSummary=Demon hunters and stuff)
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "published_year": 2011,
+    "id": 2,
+    "author": "Cassandra Clare",
+    "book_summary": "Demon hunters and stuff",
+    "name": "Mortal instruments"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: [
+    {
+        "published_year": 1997,
+        "id": 1,
+        "author": "JK Rowling",
+        "book_summary": "Magic and wizards",
+        "name": "Harry Potter"
+    },
+    {
+        "published_year": 2011,
+        "id": 2,
+        "author": "Cassandra Clare",
+        "book_summary": "Demon hunters and stuff",
+        "name": "Mortal instruments"
+    }
+]
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:54 pm</td>
+        <td>7:11:52 pm</td>
         <td>
           verifyAllBooksRetrieval test Passed
         </td>
@@ -326,9 +445,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyBookRetrieval</p>
+            <p class="name">To verify book retrieval with Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:54 pm</span> / <span>00:00:00:042</span>
+              <span>7:11:52 pm</span> / <span>00:00:00:029</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -336,10 +455,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifyBookRetrieval</h5>
-<span class='badge badge-success'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-default'>00:00:00:042</span>
+<h5 class="test-status text-pass">To verify book retrieval with Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:029</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -351,8 +470,21 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "published_year": 1997,
+    "id": 1,
+    "author": "JK Rowling",
+    "book_summary": "Magic and wizards",
+    "name": "Harry Potter"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:54 pm</td>
+        <td>7:11:52 pm</td>
         <td>
           verifyBookRetrieval test Passed
         </td>
@@ -367,9 +499,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyUpdatingBookDetails</p>
+            <p class="name">To verify updating book details with Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:54 pm</span> / <span>00:00:00:109</span>
+              <span>7:11:52 pm</span> / <span>00:00:00:065</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -377,10 +509,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifyUpdatingBookDetails</h5>
-<span class='badge badge-success'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-default'>00:00:00:109</span>
+<h5 class="test-status text-pass">To verify updating book details with Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:065</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -392,8 +524,21 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "published_year": 1997,
+    "id": 1,
+    "author": "JK Rowling",
+    "book_summary": "Harry potter, magic and wizards",
+    "name": "Harry Potter"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:54 pm</td>
+        <td>7:11:52 pm</td>
         <td>
           verifyUpdatingBookDetails test Passed
         </td>
@@ -408,9 +553,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyDeletingBooks</p>
+            <p class="name">To verify book deletion with Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:54 pm</span> / <span>00:00:00:081</span>
+              <span>7:11:52 pm</span> / <span>00:00:00:062</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -418,10 +563,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">verifyDeletingBooks</h5>
-<span class='badge badge-success'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-default'>00:00:00:081</span>
+<h5 class="test-status text-pass">To verify book deletion with Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:062</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -433,8 +578,26 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "message": "Book deleted successfully"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          Response Received: {
+    "message": "Book deleted successfully"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>4:54:54 pm</td>
+        <td>7:11:52 pm</td>
         <td>
           verifyDeletingBooks test Passed
         </td>
@@ -444,25 +607,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="10"
+        <li class="test-item"  status="pass" test-id="10"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">verifyInvalidBookRetrieval</p>
+            <p class="name">To verify invalid book retrieval with Bookstore API</p>
             <p class="text-sm">
-              <span>4:54:54 pm</span> / <span>00:00:00:066</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>7:11:52 pm</span> / <span>00:00:00:025</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">verifyInvalidBookRetrieval</h5>
-<span class='badge badge-success'>04.10.2025 4:54:54 pm</span>
-<span class='badge badge-danger'>04.10.2025 4:54:55 pm</span>
-<span class='badge badge-default'>00:00:00:066</span>
+<h5 class="test-status text-pass">To verify invalid book retrieval with Bookstore API</h5>
+<span class='badge badge-success'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-danger'>06.27.2025 7:11:52 pm</span>
+<span class='badge badge-default'>00:00:00:025</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -474,10 +637,19 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>4:54:55 pm</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:11:52 pm</td>
         <td>
-          verifyInvalidBookRetrieval test failed
+          Response Received: {
+    "detail": "Book not found"
+}
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:11:52 pm</td>
+        <td>
+          verifyInvalidBookRetrieval test Passed
         </td>
       </tr>
   </tbody>
@@ -499,25 +671,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Apr 10, 2025 04:54:48 pm</h3>
+<h3>Jun 27, 2025 07:11:49 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Apr 10, 2025 04:54:55 pm</h3>
+<h3>Jun 27, 2025 07:11:52 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>9</h3>
+<h3>10</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -533,12 +705,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='90%'>
-<b>9</b> tests passed
+<div><small data-tooltip='100%'>
+<b>10</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='10%'><b>1</b> tests failed,
+<small data-tooltip='0%'><b>0</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -556,10 +728,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='90%'><b>9</b> events passed</small></div>
+<div><small data-tooltip='37%'><b>10</b> events passed</small></div>
 <div>
-<small data-tooltip='10%'><b>1</b> events failed,
-<b data-tooltip='%'>0</b> others
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>17</b> others
 </small>
 </div>
 </div>
@@ -575,7 +747,7 @@
 </div></div>
 <script>
 var timeline = {
-"checkAPIHealth":2.286,"verifySignUp":1.749,"verifyLogin":1.033,"verifyWithInvalidCredentials":0.113,"verifyAddingBooks":0.147,"verifyAllBooksRetrieval":0.104,"verifyBookRetrieval":0.042,"verifyUpdatingBookDetails":0.109,"verifyDeletingBooks":0.081,"verifyInvalidBookRetrieval":0.066
+"To verify if the Bookstore API is up and running":1.595,"To verify user sign up with the Bookstore API":0.703,"To verify user login with the Bookstore API":0.301,"To verify the Bookstore API behavior with invalid login credentials":0.079,"To verify adding books by hitting the Bookstore API":0.11,"To verify all books retrieval with Bookstore API":0.058,"To verify book retrieval with Bookstore API":0.029,"To verify updating book details with Bookstore API":0.065,"To verify book deletion with Bookstore API":0.062,"To verify invalid book retrieval with Bookstore API":0.025
 };
 </script>
 <div class="row">
@@ -584,8 +756,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 9,
-failParent: 1,
+passParent: 10,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -601,11 +773,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 9,
-failEvents: 1,
+passEvents: 10,
+failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 0
+infoEvents: 17
 };
 </script>        </div>
       </div>

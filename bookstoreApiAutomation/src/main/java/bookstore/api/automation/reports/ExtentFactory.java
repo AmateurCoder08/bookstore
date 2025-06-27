@@ -5,6 +5,10 @@ import java.util.Objects;
 import com.aventstack.extentreports.ExtentTest;
 
 public class ExtentFactory {
+	private ExtentFactory() {
+		
+	}
+	
 	private static volatile ExtentFactory factoryInstance;
 
 	public static ExtentFactory getInstance() {
@@ -19,7 +23,7 @@ public class ExtentFactory {
 		return factoryInstance;
 	}
 	
-	ThreadLocal<ExtentTest> threadSafeExtentTest = new ThreadLocal<ExtentTest>();
+	private static ThreadLocal<ExtentTest> threadSafeExtentTest = new ThreadLocal<ExtentTest>();
 	
 	public ExtentTest getExtentTest() {
 		return threadSafeExtentTest.get();
