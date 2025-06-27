@@ -32,7 +32,8 @@ public class ExtentFactory {
 	}
 	
 	public void setExtentTest(ExtentTest test) {
-		System.out.println("Current Thread: " + Thread.currentThread().getId());		
+		System.out.println("Current Thread: " + Thread.currentThread().getId());	
+		System.out.println(test);
 		threadSafeExtentTest.set(test);
 	}
 	
