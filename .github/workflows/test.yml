@@ -43,16 +43,14 @@ jobs:
       run: |
         cd bookstoreApiAutomation
         mvn clean test
-
-  automated-api-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Postman CLI
-        run: |
-          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-      - name: Login to Postman CLI
-        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-      - name: Run API tests
-        run: |
-          postman collection run "47086355-f2b986e2-0aee-40d2-8c40-7c7976cfeb87" -e "47086355-692b39f2-46aa-4c88-ada3-339809db4c2c"
+      
+    - name: Install Postman CLI
+      run: |
+        curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+        
+    - name: Login to Postman CLI
+      run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      
+    - name: Run API tests
+      run: |
+        postman collection run "47086355-f2b986e2-0aee-40d2-8c40-7c7976cfeb87" -e "47086355-692b39f2-46aa-4c88-ada3-339809db4c2c"
